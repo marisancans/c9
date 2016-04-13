@@ -1,0 +1,3 @@
+$('#response').effect("fade", 200);
+$('#response').html("<%= escape_javascript (render partial: 'wrong', :locals => {:question => @question, :previous_question_correct_answer => @previous_question_correct_answer}) %>");
+$('#response').effect("fade", 200);

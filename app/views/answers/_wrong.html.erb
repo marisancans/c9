@@ -1,0 +1,10 @@
+encoding: utf-8
+| <%= @question.nr %> |
+<ul>
+<% question.answers.each do |answer| %>
+  <% if @previous_question_correct_answer.nil?
+    class_for_button = "btn-danger" 
+  else class_for_button = "btn-default" end%>
+  <li><%= button_to answer.name, validate_answer_path(answer, current_question: @question.id), remote: true,  class: "#{class_for_button}" %></li>
+<% end %> 
+</ul>
