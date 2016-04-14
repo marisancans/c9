@@ -1,0 +1,2 @@
+$('#response').html("<%= escape_javascript (render partial: 'correct', :locals => {:question => @question, :previous_question_correct_answer => @previous_question_correct_answer}) %>");
+$('#response').slideDown(350);
