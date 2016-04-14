@@ -15,7 +15,7 @@ test:
  encoding: utf8
  database: c9
  pool: 5
-  
+
 production:
  adapter: mysql2
  encoding: utf8
