@@ -1,6 +1,5 @@
-| <%= @question.nr %> |
-<ul>
-<% question.answers.each do |answer| %>
+| <%= @previous_question.nr %> | <%= @previous_question.title %><br>
+<% previous_question.answers.each do |answer| %>
   <% if @previous_question_correct_answer.id == answer.id
     color_for_button = "green" 
   else color_for_button = "black" end %>

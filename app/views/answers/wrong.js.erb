@@ -1,4 +1,4 @@
-$('#current_question_placeholder').html("<%= escape_javascript (render partial: 'next', :question => @next_question) %>");
-$('#response').effect("fade", 200);
 $('#response').html("<%= escape_javascript (render partial: 'wrong', :locals => {:previous_question => @previous_question, :previous_question_correct_answer => @previous_question_correct_answer}) %>");
-$('#response').effect("fade", 200);
+$('#response').effect("fade", 1);	
+$('#current_question_placeholder').html("<%= escape_javascript (render partial: 'next', :question => @next_question) %>");
+$('#response').effect("fade", 500);
