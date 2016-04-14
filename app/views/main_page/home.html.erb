@@ -1,8 +1,20 @@
-<%= link_to "New question", new_question_path %><br>
-<%= link_to "Questions", questions_path %><br>
 
-<div class="btn-group-vertical" id="current_question_placeholder" role="group">
-  <%= render @question %>
-</div>
-----------------------------------------------------------------
-<div id="response"></div>
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-10">
+			<%= link_to "New question", new_question_path %><br>
+			<%= link_to "Questions", questions_path %><br>
+
+			<div class="btn-group-vertical" id="current_question_placeholder" role="group">
+			  <%= render @question %>
+			</div>
+			----------------------------------------------------------------
+			<div id="response"></div>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+
+
+

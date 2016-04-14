@@ -13,21 +13,24 @@
 
 ActiveRecord::Schema.define(version: 20160411193729) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "question_id", limit: 4
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "question_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.string   "nr",             limit: 255
-    t.integer  "correct_answer", limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "title"
+    t.string   "nr"
+    t.integer  "correct_answer"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_foreign_key "answers", "questions"
