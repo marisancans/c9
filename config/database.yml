@@ -5,19 +5,20 @@
 #   gem 'sqlite3'
 #
 development:
- adapter: mysql2
- encoding: utf8
- database: c9
- pool: 5
+  adapter: postgresql
+  encoding: unicode
+  database: my_app_development
+  pool: 5
 
 test:
- adapter: mysql2
- encoding: utf8
- database: c9
- pool: 5
+  adapter: postgresql
+  encoding: unicode
+  database: my_app_test
+  pool: 5
+
 
 production:
- adapter: mysql2
- encoding: utf8
- database: c9
- pool: 5
+  adapter: postgresql
+  encoding: unicode
+  database: my_app_production
+  pool: 5
