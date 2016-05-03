@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     end
     
     def index
-        @questions = Question.all.order(:nr).includes(:answers)
+        @questions = Question.all.includes(:answers).order("Created_at ASC")
     end
     
     

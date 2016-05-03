@@ -13,9 +13,12 @@ class AnswersController < ApplicationController
     selected_answer = Answer.find(params[:id])
     respond_to do |format|
       @previous_question = current_question
-      @previous_question_correct_answer = selected_answer
-      @next_question = Question.find(rand(1..Question.count))
-      if selected_answer.id == current_question.correct_answer
+      @previous_question_selected_answer = selected_answer
+      session[:question_counter] += 1
+      @next_question = Question.find(session[:question_counter])
+      session[:question_counter_current] += 1
+
+      if current_question.correct_answer == selected_answer.id
         format.js { render action: "correct"}
       else
         format.js { render action: "wrong"}

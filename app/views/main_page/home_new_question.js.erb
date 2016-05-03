@@ -1,0 +1,2 @@
+$('#current-question-placeholder').html("<%= escape_javascript (render partial: 'question', :locals => {:question => @question}) %>");
+$('#category-list').remove();

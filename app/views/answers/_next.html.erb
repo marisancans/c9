@@ -1,3 +1,6 @@
+<% if !@next_question.correct_answer? %> <span style="color:red; font-size:200%">ERROR, NO CORRECT ANSWER!</span> <% end %><br>
+Category: <%= @next_question.category %><br>
+<%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %><br>
 | <%= @next_question.nr %> | <%= @next_question.title %><br>
 <ul>
 <% @next_question.answers.each do |answer| %>

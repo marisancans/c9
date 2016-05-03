@@ -1,9 +1,12 @@
 | <%= @previous_question.nr %> | <%= @previous_question.title %><br>
 <ul>
 <% previous_question.answers.each do |answer| %>
-  <% if @previous_question_correct_answer.id == answer.id
-    color_for_button = "red" 
-  else color_for_button = "black" end %>
-  <li><p style="color:<%= color_for_button %>;"><%= answer.name %></p></li>
+  <% if @previous_question_selected_answer.id == answer.id
+    answer_color = "red" 
+  elsif @previous_question.correct_answer == answer.id
+    answer_color = "green"
+  end %>
+
+  <li><p style="color:<%= answer_color %>;"><%= answer.name %></p></li>
 <% end %> 
 </ul>
