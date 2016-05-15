@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417142602) do
+ActiveRecord::Schema.define(version: 20160515201217) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20160417142602) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "category",       limit: 255
+  end
+
+  create_table "visiters", force: :cascade do |t|
+    t.string   "ip",              limit: 255
+    t.integer  "total_questions", limit: 4,   default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_foreign_key "answers", "questions"

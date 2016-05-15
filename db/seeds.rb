@@ -98,7 +98,6 @@ question_seed_hash.each do |key, array|
 end
 
 =end
- Question.create(nr: "0", title: "t", category: "c")
 require 'roo'
 #xlsx = Roo::Spreadsheet.open('tests', extension: :xlsx)
 xlsx = Roo::Excelx.new(Rails.root.join('db', 'tests.xlsx'))
@@ -118,5 +117,6 @@ xlsx.each_row_streaming(offset: 1) do |row|
   end
 end
 
+Question.last.answers.delete_all
 Question.last.delete
-Answer.last.delete
+
