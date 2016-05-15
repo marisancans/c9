@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require jquery-ui
-//= require jquery-ui/effect-fade
+//= require bootstrap
 //= require_tree .

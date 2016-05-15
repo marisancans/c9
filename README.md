@@ -1,4 +1,4 @@
-https://docs.google.com/spreadsheets/d/11C-z1qFdEcrlyjoTd-E4oXiVyMg8clqgcgakWrG31z0/edit
+
 
 mysql-ctl start
 

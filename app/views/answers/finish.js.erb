@@ -1,0 +1,5 @@
+$('#response').effect("fade", 1);	
+$('#response').hide();
+$('#current-question-placeholder').remove();
+$('#response').html("<%= escape_javascript (render partial: 'finish', :locals => {:previous_question => @previous_question, :previous_question_correct_answer => @previous_question_selected_answer}) %>");
+$('#response').effect("fade", 1000);

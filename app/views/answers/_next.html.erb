@@ -4,6 +4,6 @@ Category: <%= @next_question.category %><br>
 | <%= @next_question.nr %> | <%= @next_question.title %><br>
 <ul>
 <% @next_question.answers.each do |answer| %>
-  <li><%= button_to answer.name, validate_answer_path(answer, current_question: @next_question.id), remote: true,  class:"btn-default" %></li>
+  <li><%= button_to answer.name, validate_answer_path(answer, current_question: @next_question.id), remote: true,  class:"btn btn-default" %></li>
 <% end %> 
 </ul>

@@ -3,6 +3,6 @@ Category: <%= question.category %><br>
 | <%= question.nr %> | <%= question.title %><br>
 <ul class="list-unstyled">
 <% question.answers.each do |answer| %>
-  <li><%= button_to answer.name, validate_answer_path(answer, current_question: @question.id), remote: true,  class:"btn-default" %></li>
+  <li><%= button_to answer.name, validate_answer_path(answer, current_question: @question.id), remote: true,  class:"btn btn-default" %></li>
 <% end %> 
 </ul>

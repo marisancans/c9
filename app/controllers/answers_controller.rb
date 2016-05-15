@@ -17,7 +17,8 @@ class AnswersController < ApplicationController
       session[:question_counter] += 1
       @next_question = Question.find(session[:question_counter])
       session[:question_counter_current] += 1
-
+      session[:correct_questions] += 1 if current_question.correct_answer == selected_answer.id
+      format.js { render action: "finish"} if session[:question_counter_current] == session[:question_counter_max] + 1
       if current_question.correct_answer == selected_answer.id
         format.js { render action: "correct"}
       else

@@ -6,7 +6,6 @@
   elsif @previous_question.correct_answer == answer.id
     answer_color = "green"
   end %>
-
   <li><p style="color:<%= answer_color %>;"><%= answer.name %></p></li>
 <% end %> 
 </ul>
