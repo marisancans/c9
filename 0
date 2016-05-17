@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20160517201640_add_column_to_visiters.rb
