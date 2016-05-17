@@ -9,6 +9,9 @@ class AnswersController < ApplicationController
   end
   
   def validate
+    v = Visiter.where(ip: request.remote_ip).first
+    v.total_question_count += 1
+    v.save
     current_question = Question.find(params[:current_question])
     selected_answer = Answer.find(params[:id])
     respond_to do |format|
