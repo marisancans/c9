@@ -1,8 +1,10 @@
-| <%= @previous_question.nr %> | <%= @previous_question.title %><br>
-<% previous_question.answers.each do |answer| %>
-  <% if @previous_question_selected_answer.id == answer.id
-    color_for_button = "green" 
-  else color_for_button = "black" end %>
-  <li><p style="color:<%= color_for_button %>;"><%= answer.name %></p></li>
-<% end %> 
-</ul>
+<div class="correct">
+  | <%= @previous_question.nr %> | <%= @previous_question.title %><br>
+  <% previous_question.answers.each do |answer| %>
+    <% if @previous_question_selected_answer.id == answer.id
+      color_for_button = "green" 
+    else color_for_button = "black" end %>
+    <li><p style="color:<%= color_for_button %>;"><%= answer.name %></p></li>
+  <% end %> 
+  </ul>
+</div>

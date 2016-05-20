@@ -1,11 +1,13 @@
-| <%= @previous_question.nr %> | <%= @previous_question.title %><br>
-<ul>
-<% previous_question.answers.each do |answer| %>
-  <% if @previous_question_selected_answer.id == answer.id
-    answer_color = "red" 
-  elsif @previous_question.correct_answer == answer.id
-    answer_color = "green"
-  end %>
-  <li><p style="color:<%= answer_color %>;"><%= answer.name %></p></li>
-<% end %> 
-</ul>
+<div class="wrong">
+  | <%= @previous_question.nr %> | <%= @previous_question.title %><br>
+  <ul class="list-unstyled">
+  <% previous_question.answers.each do |answer| %>
+    <% if @previous_question_selected_answer.id == answer.id
+      answer_color = "red" 
+    elsif @previous_question.correct_answer == answer.id
+      answer_color = "green"
+    end %>
+    <li><p style="color:<%= answer_color %>;"><%= answer.name %></p></li>
+  <% end %> 
+  </ul>
+</div>

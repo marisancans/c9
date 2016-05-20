@@ -1,20 +1,15 @@
-<div class="row">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-10">
-				<%= link_to "Questions", questions_path %><br>
-				<div id="category-list">
-					<% @categories.each do |category| %>
-						<%= button_to "#{Question.where("category = ?", category).count} #{category}", home_new_question_path(category: category), remote: true, class: "btn btn-default" %>
-					<% end %>
-				</div>
-				<div class="btn-group-vertical" id="current-question-placeholder" role="group">
-				</div>
-		<div id="response"></div>
-	</div>
-	<div class="col-md-2">
-	</div>
+<%= stylesheet_link_tag "main_page" %>
+
+<%= link_to "Questions", questions_path, class: "btn btn-primary btn-lg sharp", id: "questions-button"  %><br>
+<div id="category-list" class="text-center">
+	<% @categories.each do |category| %>
+		<%= button_to "#{Question.where("category = ?", category).count} #{category}", home_new_question_path(category: category), remote: true, class: "btn btn-primary btn-lg sharp"  %>
+	<% end %>
 </div>
+<div class="btn-group-vertical" id="current-question-placeholder" role="group">
+</div>
+<div id="response"></div>
+
 
 
 
