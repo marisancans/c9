@@ -1,4 +1,43 @@
-@media (max-width: 500px) {
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .wrong, .next, .correct, .new-question {
+    font-size: 45px;
+  
+    .btn {
+      font-size: 45px;
+    }
+  }
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .wrong, .next, .correct, .new-question {
+    font-size: 40px;
+  
+    .btn {
+      font-size: 40px;
+    }
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .wrong, .next, .correct, .new-question {
+    font-size: 35px;
+  
+    .btn {
+      font-size: 35px;
+    }
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
   .wrong, .next, .correct, .new-question {
     font-size: 20px;
   
@@ -7,6 +46,7 @@
     }
   }
 }
+
 
 .wrong, .next, .correct, .new-question {
   padding-left: 10px;
