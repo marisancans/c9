@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   def validate
     v = Visiter.where(ip: request.remote_ip).first
     v.total_question_count += 1
-    v.last_active = Time.now
+    v.last_active = Time.now.strftime("%H:%M:%S")
     v.save
     current_question = Question.find(params[:current_question])
     selected_answer = Answer.find(params[:id])
@@ -29,6 +29,7 @@ class AnswersController < ApplicationController
         format.js { render action: "wrong"}
       end
     end
+    logger.info "Question - #{current_question.id} | Answer - #{selected_answer.id} | ip - #{v.ip} time - #{Time.now.strftime("%H:%M:%S")}"
   end
   
 end
