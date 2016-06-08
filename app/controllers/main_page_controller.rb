@@ -16,4 +16,7 @@ class MainPageController < ApplicationController
         end
         @question = Question.find(session[:question_counter]) 
     end
+    def visiters
+        @visiters = Visiter.all
+    end
 end

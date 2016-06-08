@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "main_page" %>
+<div class="container"> 
+	<h4> Visiter list </h4>
+		<table class="table table-bordered table-responsive">
+		 <thead>
+	    <tr>
+	    	<th>IP</th>
+	      <th>Total questions</th>
+	      <th>Last active</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @visiters.each do |v| %>
+		    <tr>
+		    	<td><%= v.ip %></td>
+		      <td><%= v.total_question_count %></td>
+		      <td><%= v.last_active %></td>
+		    </tr>
+		   <% end %>
+	  </tbody>
+	</table>
+</div>		

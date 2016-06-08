@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    resources :answers
    
   post 'home_new_question' => 'main_page#home_new_question'
+  get 'visiters' => 'main_page#visiters'
   #post 'validate' => 'answers#validate'
   
   resources :answers do

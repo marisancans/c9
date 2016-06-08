@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517201452) do
+ActiveRecord::Schema.define(version: 20160608102615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20160517201452) do
   end
 
   create_table "visiters", force: :cascade do |t|
-    t.string  "ip"
-    t.integer "total_question_count"
+    t.string   "ip"
+    t.integer  "total_question_count"
+    t.datetime "last_active"
   end
 
   add_foreign_key "answers", "questions"
