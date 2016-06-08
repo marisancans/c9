@@ -2,8 +2,7 @@ class MainPageController < ApplicationController
     #Question counter needed
     def home
         @categories = Question.uniq.pluck(:category)
-        Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip)
-        
+        Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip) 
     end
     
     def home_new_question
@@ -16,6 +15,7 @@ class MainPageController < ApplicationController
         end
         @question = Question.find(session[:question_counter]) 
     end
+    
     def visiters
         @visiters = Visiter.all
     end
