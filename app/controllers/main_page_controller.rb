@@ -17,7 +17,7 @@ class MainPageController < ApplicationController
     end
 
     def visiters
-        @visiters = Visiter.all
+        @visiters = Visiter.order('last_active DESC')
     end
 
     def log

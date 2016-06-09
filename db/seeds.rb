@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 =begin
 question_seed_hash = {  
   
@@ -14,69 +7,6 @@ question_seed_hash = {
     "Lai izēvētos vienu variantu no vairākiem",
     "Lai saīdzinātu divas vērtības",
     "1.1.1", 2],
-  "Kas ir operators programmēšanas valodā?":
-    ["Cilvēks, kurš strādā ar datoru",
-    "Pabeigta valodas frāze, kas nosaka kādu etapu datu apstrādē",
-    "Datu elements, kurš programmas izpildes gaitā maina savu vērtību",
-    "Datu elements, kurš programmas izpildes gaitā namaina savu vērtību",
-    "1.1.2", 2],
-  "Kādā gadījumā vēlams lietot cikla operatoru for?":
-    ["Kad nepieciešams, lai cikls izpildītos kaut venu reizi",
-    "Kad ir zināms cikla izpildes reižu skaits",
-    "Kad nav zināms cikla izpildes reižu skaits",
-    "Tikai darbam ar veseliem mainīgajiem",
-    "1.1.3", 2],
-  "Kura no minētajām operācijām ar rakstzīmju virknēm ir iespējama Pascal valodā?":
-    ["Jebkura aritmētiska operācija",
-    "Virkņu apvienošana",
-    "Vienas virknes reizināšana ar otru",
-    "Vienas virknes dalīšana ar otru",
-    "1.1.4", 2],
-  "Kas ir viendimensiju masīva element indekss?":
-    ["Masīva elementa vērtība",
-    "Masīva elementa numurs",
-    "Masīva rindas numurs",
-    "Masīva kolonas numurs",
-    "1.1.5",2],
-  "Kā izpaužas rekursija?":
-    ["Apakšprogramma izsauc pati sevi",
-    "Apakšprogramma izsauc apakšprogrammu, kas uzrakstīta augstāk",
-    "Apakšprogramma izsauc apaksprogrammu, kas uzrastīta zemāk",
-    "apakšprogrmma izsauc standartprocedūru",
-    "1.1.6", 1],
-    "Kas ir 'klase'?":
-    ["Programmēšanas valodas operators",
-    "sakārtots vienāda tipa elementu kopums",
-    "datu tips, kurš ietver datu elementus un to apstrādāšanas metodes",
-    "funkcijas tips, kurš apstrādā dažādu tipu datu laukus",
-    "1.1.7", 3],
-    "Kā sauc algoritmu, kas ir pierakstīts datoram saprotamā formātā?":
-    ["uzdevums",
-    "komanda",
-    "programma",
-    "blok-shēma",
-    "1.1.8", 3],
-    "Kas ir programmas mazākā izpildāmā vērtība?":
-    ["Operators",
-    "operands",
-    "teikums",
-    "parametrs",
-    "1.1.9", 1],
-    "Kura ir programmēšanas valoda ir jūtīga pret operatoru burtu reģistru?":
-    ["Pascal",
-    "JavaScript",
-    "HTML",
-    "SQL",
-    "1.1.10", 2],
-    "Kādiem mērķiem programmēšanas valodās izmnto operatoru blokus?":
-    ["lai izvadītu informāciju uz ekrāna",
-    "lai noteiktā programmas vietā izpildītu nevis vienu, bet vairākus operatorus",
-    "lai izvēlētos vienu variantu no vairākiem",
-    "lai slīdzinātu divas vērības",
-    "1.1.11", 3],
-    "Kādiem mērķiem programmēšanas valodās izmanto sazrarojumus?":
-    ["lai kādas darbībs atkārtotu vairākas reizes"]
-    
 }
 
 #puts "== CREATING =="
@@ -98,7 +28,11 @@ question_seed_hash.each do |key, array|
 end
 
 =end
+
 require 'roo'
+#Uses roo gem to load all fields from xlsx file in same directory
+#Fields are loaded based rows
+#Answer is loaded if field has a value, in this case "x"
 #xlsx = Roo::Spreadsheet.open('tests', extension: :xlsx)
 xlsx = Roo::Excelx.new(Rails.root.join('db', 'tests.xlsx'))
 category = ""                  #, max_rows: 39
@@ -120,3 +54,28 @@ end
 Question.last.answers.delete_all
 Question.last.delete
 
+#Deletes all questions without an answer including answers linked to question
+c = 0
+Question.find_each do |question|
+  if !question.correct_answer.present?
+    puts question.id
+    answers = Answer.where("question_id = ?", question.id)
+    puts "#{answers.count} --"
+    answers.delete_all
+    question.delete
+    c += 1
+  end
+end
+puts "deleted #{c} questions, including answers"
+
+#Deletes all answers with name "x", proably gem fault of reading xlsx cells
+c = 0
+Answer.where("name = ?", "x").each do |answer|
+  c += 1
+  id = answer.question_id
+  answers = Answer.where("question_id = ?", id)
+  answers.delete_all
+  Question.find(id).delete
+end
+puts Answer.where("name = ?", "x").count
+puts "deleted #{c} wrongly loaded answers, inlucind questions"
