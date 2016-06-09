@@ -2,7 +2,7 @@ class MainPageController < ApplicationController
     #Question counter needed
     def home
         @categories = Question.uniq.pluck(:category)
-        Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip) 
+        Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip)
     end
     
     def home_new_question
@@ -21,7 +21,17 @@ class MainPageController < ApplicationController
     end
 
     def log
-        @logs = `tail -n 100 log/#{Rails.env}.log`
+      @logs = []
+      File.open("./log/log.log", "r").each_line do |line|
+        @logs.push("#{line}")
+      end
+
+        #@logs = `tail -n 100 log/log.log`
+    end
+
+    def clear_logs
+      File.truncate("./log/log.log", 0)
+      redirect_to root_url
     end
 
 end

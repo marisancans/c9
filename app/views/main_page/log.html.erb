@@ -1,5 +1,8 @@
 <%= stylesheet_link_tag "main_page" %>
-<div class="container"> 
+<div class="container code"> 
 	<h4> Logs </h4>
-	<%= @logs %>
+	<h5><%= link_to "clear logs", clear_logs_path %></h5>
+	<% @logs.each do |line| %>
+		<%= line %></br>
+	<% end %>
 </div>		

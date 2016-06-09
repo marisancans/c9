@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'home_new_question' => 'main_page#home_new_question'
   get 'visiters' => 'main_page#visiters'
   get 'log' => 'main_page#log'
+  get 'clear_logs' => 'main_page#clear_logs'
   #post 'validate' => 'answers#validate'
   
   resources :answers do

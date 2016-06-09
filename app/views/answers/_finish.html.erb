@@ -1,3 +1,4 @@
+
 <% if !@next_question.correct_answer? %> <span style="color:red; font-size:200%">ERROR, NO CORRECT ANSWER!</span> <% end %><br>
 | <%= @previous_question.nr %> | <%= @previous_question.title %><br>
 <ul>
@@ -11,7 +12,8 @@
 <% end %> 
 </ul>
 
-<%= session[:correct_questions] %> out of <%= session[:question_counter_max] %>, that's 
-<%= ( (session[:correct_questions].to_f / session[:question_counter_max].to_f) * 100).to_i %>% correct
+<h2><%= session[:correct_questions] %> out of <%= session[:question_counter_max] %>, that's 
+<%= ( (session[:correct_questions].to_f / session[:question_counter_max].to_f) * 100).to_i %>% correct</h2>
+<h2>Refresh this page to restart test</h2>
 
 <img src="http://cloud-3.steamusercontent.com/ugc/398927845005726658/A11325E5D06AF745A023B0144E2D1A5A795BBDEA/" alt=":O", width="100%">

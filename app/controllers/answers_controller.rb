@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
   def index
     @answers = Answer.all
@@ -30,6 +31,20 @@ class AnswersController < ApplicationController
       end
     end
     logger.info "Question - #{current_question.id} | Answer - #{selected_answer.id} | ip - #{v.ip} time - #{Time.now.strftime("%H:%M:%S")}"
+    open('./log/log.log', 'a+') { |f|
+      f.puts "#{Time.now.strftime("%H:%M:%S")} | #{v.ip} | #{current_question.title } - #{current_question.id} | #{selected_answer.name} - #{selected_answer.id}"
+    }
+  end
+
+  private
+
+  def record_not_found
+    v = Visiter.where(ip: request.remote_ip).first
+    current_question = Question.find(params[:current_question])
+    Question.find(session[:question_counter] + 1)
+    open('./log/log.log', 'a+') { |f|
+      f.puts "ERROR, RECORD NOT FOUND #{Time.now.strftime("%H:%M:%S")} | #{v.ip} | #{current_question.title } - #{current_question.id}"
+    }
   end
   
 end
