@@ -4,16 +4,15 @@ class Question < ActiveRecord::Base
     accepts_nested_attributes_for :answers
     
     def self.random(prev_q_ids)
-      #prev_q_ids = previous question ids
-      count = Question.count
-      random_from_count = rand(count)
-
-      question = Question.find(random_from_count)
+      question = Question.order("RANDOM()").first
       until question.answered? prev_q_ids, question.id
-        #next_question rand(count)
-        question = Question.find(rand(count))
+        question = Question.limit(1).order("RANDOM()")
       end
      question
+    end
+    
+    def self.next(id)
+      Question.where("id > ?", id).first
     end
   
     

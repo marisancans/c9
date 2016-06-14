@@ -3,6 +3,8 @@ class MainPageController < ApplicationController
     def home
         @categories = Question.uniq.pluck(:category)
         Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip)
+        session[:previous_question_ids] = []
+        session[:random] = false
     end
     
     def home_new_question
@@ -23,7 +25,7 @@ class MainPageController < ApplicationController
       @question = Question.random(session[:previous_question_ids])
       session[:previous_question_ids] << @question.id
       session[:question_counter_max] = 30
-      session[:question_counter_current] = 0
+      session[:question_counter_current] = 1
       session[:random] = true
     end
 
