@@ -8,7 +8,5 @@
       <li><%= button_to answer.name, validate_answer_path(answer, current_question: @next_question.id), remote: true,  class:"btn btn-default" %></li>
     <% end %> 
     </ul>
-    <%= session[:previous_question_ids].inspect %>
-
 </div>
 
