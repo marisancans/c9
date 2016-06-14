@@ -85,8 +85,22 @@
     background: #0099cc;
     color: #ffffff;
     width: 100%;
-  }
+}
 
+.btn.sharp-yellow {
+  border-radius:0;
+  padding: 30px 24px;
+  border: 0 none;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  background: #6600cc;
+  color: #ffffff;
+  width: 100%;
+}
+
+.btn.sharp-yellow:hover {
+  background: 8000ff;
+}
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;

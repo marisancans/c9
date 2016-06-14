@@ -1,5 +1,5 @@
 <div class="new-question">
-    Category: <%= question.category %><br>
+    Category: <%= question.category if session[:random] == false %><br>
     <%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %><br>
     | <%= question.nr %> | <%= question.title %><br>
     <ul class="list-unstyled">

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    resources :answers
    
   post 'home_new_question' => 'main_page#home_new_question'
+  post 'random_questions' => 'main_page#random_questions'
   get 'visiters' => 'main_page#visiters'
   get 'log' => 'main_page#log'
   get 'clear_logs' => 'main_page#clear_logs'
