@@ -13,7 +13,6 @@ class Question < ActiveRecord::Base
         #next_question rand(count)
         question = Question.find(rand(count))
       end
-      
      question
     end
   

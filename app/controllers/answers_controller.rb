@@ -26,6 +26,7 @@ class AnswersController < ApplicationController
         @next_question = Question.find(session[:question_counter])
       else
         @next_question = Question.random(session[:previous_question_ids])
+        session[:previous_question_ids] << @next_question.id
       end
       format.js { render action: "finish"} if session[:question_counter_current] == session[:question_counter_max] + 1
       if current_question.correct_answer == selected_answer.id
