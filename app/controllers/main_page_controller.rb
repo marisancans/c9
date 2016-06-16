@@ -24,7 +24,7 @@ class MainPageController < ApplicationController
       session[:previous_question_ids] = []
       @question = Question.random(session[:previous_question_ids])
       session[:previous_question_ids] << @question.id
-      session[:question_counter_max] = 30
+      session[:question_counter_max] = 50
       session[:question_counter_current] = 1
       session[:random] = true
     end
