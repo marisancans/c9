@@ -1,7 +1,7 @@
 <div class="next">
     <%= @next_question.title %>
     <ul class="list-unstyled">
-    <% @next_question.answers.each do |answer| %>
+    <% @next_question.answers.order(:id).each do |answer| %>
       <li><%= button_to answer.name, validate_answer_path(answer, current_question: @next_question.id), remote: true,  class:"btn btn-default" %></li>
     <% end %> 
     </ul>
