@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag "main_page" %>
-<div class="container"> 
+<div class="container text-center"> 
 	<h4> Visiter list </h4>
 	<h5> Your ip: <%= request.remote_ip %></h5>
-		<table class="table table-bordered table-responsive">
+		<table class="table-fill table table-bordered table-responsive">
 		 <thead>
 	    <tr>
 	    	<th>IP</th>
@@ -12,7 +12,7 @@
 	  </thead>
 	  <tbody>
 	  	<% @visiters.each do |v| %>
-	  		<% col_color = "outline: solid #9999ff;" if v.ip == request.remote_ip %>
+	  		<% col_color = "outline: solid #3333ff;" if v.ip == request.remote_ip %>
 		    <tr style="<%= col_color %>">
 		    	<td><%= v.ip %></td>
 		      <td><%= v.total_question_count %></td>
