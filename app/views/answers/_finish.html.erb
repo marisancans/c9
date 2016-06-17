@@ -14,23 +14,7 @@
 
 <h2><%= session[:correct_questions] %> out of <%= session[:question_counter_max] %>, that's 
 <%= ( (session[:correct_questions].to_f / session[:question_counter_max].to_f) * 100).to_i %>% correct</h2>
-<h2>Scroll down to see previous questions</h2>
 <img src="https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif" alt=":O", width="100%">
 </br>
 </br>
-<!-- shows prevous questions, unfinished
-<#% session[:previous_question_ids].each_with_index do |q, index| %>
-  <#% q =  Question.find(q) %>
-  <#%= q.title %></br>
-    <#% q.answers.each do |answer| %>
-    <#% if session[:previous_question_selected][index] == answer.id
-      answer_color = "red" 
-    elsif q.correct_answer == answer.id
-      answer_color = "green"
-    end %>
-    <li class="list-unstyled"><p style="color:<#%= answer_color %>;"><#%= answer.name %></p></li>
-  <#% end %> 
-  </br>
-<#% end %>
 
--->

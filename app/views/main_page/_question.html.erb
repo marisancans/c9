@@ -1,10 +1,9 @@
 <div class="new-question btn-group-vertical" role="group">
-    Category: <%= question.category if session[:random] == false %><br>
-    <%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %><br>
-    | <%= question.nr %> | <%= question.title %><br>
+    <%= @question.title %>
     <ul class="list-unstyled">
     <% question.answers.each do |answer| %>
       <li><%= button_to answer.name, validate_answer_path(answer, current_question: @question.id), remote: true,  class:"btn btn-default" %></li>
-    <% end %> 
+    <% end %>°
+    <div class="question-details text-center"><%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %> <%= @question.category %> <%= @question.nr %></div>
     </ul>
 </div>
