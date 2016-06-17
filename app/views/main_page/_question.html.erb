@@ -1,4 +1,4 @@
-<div class="new-question">
+<div class="new-question btn-group-vertical" role="group">
     Category: <%= question.category if session[:random] == false %><br>
     <%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %><br>
     | <%= question.nr %> | <%= question.title %><br>
