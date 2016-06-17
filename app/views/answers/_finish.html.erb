@@ -18,12 +18,19 @@
 <img src="https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif" alt=":O", width="100%">
 </br>
 </br>
-<% session[:previous_question_ids].each_with_index do |q, index| %>
-  <% question =  Question.find(q) %>
-  <%= question.title %></br>
-  <% question.answers.each do |a| %>
-    <% session[:previous_question_correct][index] ? color = "green" : color = "red" %>
-    <div style="color: <%= color %>"><%= a.name %></div></br>
-  <% end %>
+<!-- shows prevous questions, unfinished
+<#% session[:previous_question_ids].each_with_index do |q, index| %>
+  <#% q =  Question.find(q) %>
+  <#%= q.title %></br>
+    <#% q.answers.each do |answer| %>
+    <#% if session[:previous_question_selected][index] == answer.id
+      answer_color = "red" 
+    elsif q.correct_answer == answer.id
+      answer_color = "green"
+    end %>
+    <li class="list-unstyled"><p style="color:<#%= answer_color %>;"><#%= answer.name %></p></li>
+  <#% end %> 
   </br>
-<% end %>
+<#% end %>
+
+-->
