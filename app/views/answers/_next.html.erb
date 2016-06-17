@@ -1,12 +1,12 @@
 <div class="next">
-    <% if !@next_question.correct_answer? %> <span style="color:red; font-size:200%">ERROR, NO CORRECT ANSWER!</span><br> <% end %>
-    <div class="question-details text-center"><%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %> <%= @next_question.category %> <%= @next_question.nr %></div>
-    <hr class="hr-line">
     <%= @next_question.title %>
     <ul class="list-unstyled">
     <% @next_question.answers.each do |answer| %>
       <li><%= button_to answer.name, validate_answer_path(answer, current_question: @next_question.id), remote: true,  class:"btn btn-default" %></li>
     <% end %> 
     </ul>
+    <% if !@next_question.correct_answer? %> <span style="color:red; font-size:200%">ERROR, NO CORRECT ANSWER!</span><br> <% end %>
+    <div class="question-details text-center"><%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %> <%= @next_question.category %> <%= @next_question.nr %></div>
+    <hr class="hr-line">
 </div>
 

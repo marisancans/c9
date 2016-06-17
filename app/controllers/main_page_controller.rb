@@ -4,6 +4,7 @@ class MainPageController < ApplicationController
         @categories = Question.uniq.pluck(:category)
         Visiter.create(ip: request.remote_ip, total_question_count: 0) if !Visiter.exists?(ip: request.remote_ip)
         session[:previous_question_ids] = []
+        session[:previous_question_correct] = []
         session[:random] = false
     end
     

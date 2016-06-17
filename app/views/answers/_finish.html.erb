@@ -14,6 +14,16 @@
 
 <h2><%= session[:correct_questions] %> out of <%= session[:question_counter_max] %>, that's 
 <%= ( (session[:correct_questions].to_f / session[:question_counter_max].to_f) * 100).to_i %>% correct</h2>
-<h2>Refresh this page to restart test</h2>
-
-<img src="http://cloud-3.steamusercontent.com/ugc/398927845005726658/A11325E5D06AF745A023B0144E2D1A5A795BBDEA/" alt=":O", width="100%">
+<h2>Scroll down to see previous questions</h2>
+<img src="https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif" alt=":O", width="100%">
+</br>
+</br>
+<% session[:previous_question_ids].each_with_index do |q, index| %>
+  <% question =  Question.find(q) %>
+  <%= question.title %></br>
+  <% question.answers.each do |a| %>
+    <% session[:previous_question_correct][index] ? color = "green" : color = "red" %>
+    <div style="color: <%= color %>"><%= a.name %></div></br>
+  <% end %>
+  </br>
+<% end %>
