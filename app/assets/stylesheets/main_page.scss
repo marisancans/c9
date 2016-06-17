@@ -90,7 +90,7 @@
     width: 100%;
 }
 
-.btn.sharp-yellow {
+.btn.sharp-purple {
   border-radius:0;
   padding: 30px 24px;
   border: 0 none;
@@ -120,6 +120,16 @@
 
 .code {
   font-family: Pragmata, Menlo, 'DejaVu LGC Sans Mono', 'DejaVu Sans Mono', Consolas, 'Everson Mono', 'Lucida Console', 'Andale Mono', 'Nimbus Mono L', 'Liberation Mono', FreeMono, 'Osaka Monospaced', Courier, 'New Courier', monospace;
+}
+
+#total_questions {
+  border-radius: 0;
+  border: 0 none;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  background: #0099cc;
+  color: #ffffff;
+  width: 100%; 
 }
 
 

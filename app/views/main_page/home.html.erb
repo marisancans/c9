@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "main_page" %>
-
-<%= link_to "Questions", questions_path, class: "btn btn-primary btn-lg sharp", id: "questions-button"  %>
-<%= button_to "Random 70", random_questions_path, remote: :true,  class: "btn btn-primary btn-lg sharp-yellow", id: "random-button"  %>
+<%= link_to "Total answered questions: #{@total_answered_questions}", visiters_path, id: "total_questions", class: "text-center btn btn-primary btn-lg" %>
+<%#= link_to "Questions", questions_path, class: "btn btn-primary btn-lg sharp", id: "questions-button"  %>
+<%= button_to "Random 70", random_questions_path, remote: :true,  class: "btn btn-primary btn-lg sharp-purple", id: "random-button"  %>
 <div id="category-list" class="text-center">
 	<% @categories.each do |category| %>
 		<%= button_to "#{Question.where("category = ?", category).count} #{category}", home_new_question_path(category: category), remote: true, class: "btn btn-primary btn-lg sharp"  %>

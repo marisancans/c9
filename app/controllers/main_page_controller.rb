@@ -6,6 +6,7 @@ class MainPageController < ApplicationController
         session[:previous_question_ids] = []
         session[:previous_question_selected] = []
         session[:random] = false
+        @total_answered_questions = Visiter.sum(:total_question_count)
     end
     
     def home_new_question

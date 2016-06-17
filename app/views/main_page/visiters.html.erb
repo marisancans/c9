@@ -12,9 +12,9 @@
 	  </thead>
 	  <tbody>
 	  	<% @visiters.each do |v| %>
-		    <tr>
-		    	<% col_color = "#6666ff" if v.ip == request.remote_ip %>
-		    	<td style="background-color:<%= col_color %>"><%= v.ip %></td>
+	  		<% col_color = "outline: solid #9999ff;" if v.ip == request.remote_ip %>
+		    <tr style="<%= col_color %>">
+		    	<td><%= v.ip %></td>
 		      <td><%= v.total_question_count %></td>
 		      <td><%= v.last_active %></td>
 		    </tr>
