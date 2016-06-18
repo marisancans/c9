@@ -32,7 +32,7 @@ class MainPageController < ApplicationController
     end
 
     def visiters
-        @visiters = Visiter.order('last_active DESC')
+        @visiters = Visiter.order('total_question_count DESC')
     end
     
     def results
