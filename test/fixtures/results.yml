@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  correct_question: 1
+  question_count: 1
+  visiter_ip: MyString
+
+two:
+  correct_question: 1
+  question_count: 1
+  visiter_ip: MyString

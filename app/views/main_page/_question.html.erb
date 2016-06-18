@@ -1,7 +1,7 @@
 <div class="new-question btn-group-vertical" role="group">
     <%= @question.title %>
     <ul class="list-unstyled">
-    <% question.answers.each do |answer| %>
+    <% question.answers.order(:id).each do |answer| %>
       <li><%= button_to answer.name, validate_answer_path(answer, current_question: @question.id), remote: true,  class:"btn btn-default" %></li>
     <% end %>
     <div class="question-details text-center"><%= session[:question_counter_current] %> out of <%= session[:question_counter_max] %> <%= @question.category %> <%= @question.nr %></div>

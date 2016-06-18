@@ -34,6 +34,10 @@ class MainPageController < ApplicationController
     def visiters
         @visiters = Visiter.order('last_active DESC')
     end
+    
+    def results
+      @results = Result.order('created_at DESC')
+    end
 
     def log
       @logs = []

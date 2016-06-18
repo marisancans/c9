@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag "main_page" %>
+<div class="container text-center"> 
+	<h4> Result list </h4>
+	<h5> Your ip: <%= request.remote_ip %></h5>
+		<table class="table-fill table table-bordered table-responsive">
+		 <thead>
+	    <tr>
+        <th>IP</th>
+	      <th>%</th>
+	      <th>Correct</th>
+	      <th>Count</th>
+	      <th>At</th>
+	  </thead>
+	  <tbody>
+	  	<% @results.each do |r| %>
+	  		<% col_color = "outline: solid #3333ff;" if r.visiter_ip == request.remote_ip %>
+		    <tr style="<%= col_color %>">
+		    	<td><%= r.visiter_ip %></td>
+		    	<td><%= ((r.correct_question.to_f / r.question_count.to_f) * 100).to_i %>%</td>
+		      <td><%= r.correct_question %></td>
+		      <td><%= r.question_count %></td>
+		      <td><%= r.created_at %></td>
+		    </tr>
+		   <% end %>
+	  </tbody>
+	</table>
+</div>		

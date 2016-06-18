@@ -1,6 +1,6 @@
 <div class="correct">
   | <%= @previous_question.nr %> | <%= @previous_question.title %><br>
-  <% previous_question.answers.each do |answer| %>
+  <% previous_question.answers.order(:id).each do |answer| %>
     <% if @previous_question_selected_answer.id == answer.id
       color_for_button = "green" 
     else color_for_button = "black" end %>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'visiters' => 'main_page#visiters'
   get 'log' => 'main_page#log'
   get 'clear_logs' => 'main_page#clear_logs'
+  get 'results' => 'main_page#results'
   #post 'validate' => 'answers#validate'
   
   resources :answers do
